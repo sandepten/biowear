@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    body {
-      @apply overflow-x-hidden;
-    }
+  body {
+    @apply overflow-x-hidden;
+  }
+}
+
+@font-face {
+  font-family: "Catalish";
+  src: url("../public/fonts/Catalish\ Huntera.otf");
 }
