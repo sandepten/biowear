@@ -3,7 +3,7 @@ import Link from "next/link";
 const Banner = () => {
   return (
     <div>
-      <div className="mx-3 text-center">
+      <div className="mx-3 text-center text-white lg:text-black">
         <p className="text-4xl font-bold md:text-5xl lg:text-[2.5rem] xl:text-5xl">
           <span className="lg:text-5xl xl:text-7xl">Biowear.</span> For the
           nerdy you

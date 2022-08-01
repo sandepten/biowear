@@ -12,7 +12,7 @@ const Navbar = () => {
   const [cart, setCart] = useState(false);
   return (
     <div>
-      <nav className="z-10">
+      <nav className="bg-white">
         {/* This is the navbar for small devices */}
         <div className="mx-3 flex justify-between py-3 md:hidden">
           {hamburger ? (
@@ -74,7 +74,7 @@ const Navbar = () => {
         ) : null}
         {/* //?This is the cart sidebar */}
         {cart ? (
-          <div className="absolute top-0 right-0 z-20 min-h-screen w-full bg-white md:w-3/4 lg:w-1/2">
+          <div className="absolute top-0 right-0 z-20 min-h-screen w-full bg-white md:w-3/4 lg:w-1/3">
             <button
               onClick={() => {
                 setCart(false);
