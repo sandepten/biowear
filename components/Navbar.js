@@ -10,6 +10,7 @@ import { useState } from "react";
 const Navbar = () => {
   const [hamburger, setHamburger] = useState(true);
   const [cart, setCart] = useState(false);
+  const [login, setLogin] = useState(false);
   return (
     <div>
       <nav className="bg-white">
@@ -110,15 +111,12 @@ const Navbar = () => {
               Biowear
             </span>
           </Link>
-          <ul className="mr-6 flex space-x-6 font-mono text-lg font-semibold lg:space-x-8">
+          <ul className="mr-6 flex items-center space-x-6 font-mono text-lg font-semibold lg:space-x-8">
             <Link href={"/about"}>
               <li className="hover:cursor-pointer hover:underline">About</li>
             </Link>
             <Link href={"/contact"}>
               <li className="hover:cursor-pointer hover:underline">Contact</li>
-            </Link>
-            <Link href={"/account"}>
-              <UserIcon height={22} />
             </Link>
             <ShoppingCartIcon
               className="hover:cursor-pointer"
@@ -127,6 +125,17 @@ const Navbar = () => {
               }}
               height={22}
             />
+            {login ? (
+              <Link href={"/account"}>
+                <UserIcon height={22} />
+              </Link>
+            ) : (
+              <Link href={"/signup"}>
+                <span className="text-xl font-semibold text-blue-900 hover:cursor-pointer hover:underline">
+                  Sign Up
+                </span>
+              </Link>
+            )}
           </ul>
         </div>
       </nav>

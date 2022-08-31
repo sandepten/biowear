@@ -39,6 +39,7 @@ export default function Home() {
       <div>
         <Emailnews />
       </div>
+      <Footer />
     </div>
   );
 }
