@@ -6,9 +6,11 @@ import {
 } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { hamburgerMenuState } from "../atoms/signAtoms";
 
 const Navbar = () => {
-  const [hamburger, setHamburger] = useState(true);
+  const [hamburger, setHamburger] = useRecoilState(hamburgerMenuState);
   const [cart, setCart] = useState(false);
   const [login, setLogin] = useState(false);
   return (
@@ -58,8 +60,14 @@ const Navbar = () => {
                 <li>Kids</li>
               </Link>
               <hr />
-              <Link href={"/account"}>
-                <li>Account</li>
+              <Link href={"/signup"}>
+                <li
+                  onClick={() => {
+                    setHamburger(false);
+                  }}
+                >
+                  Sign up
+                </li>
               </Link>
               <hr />
               <Link href={"/about"}>
@@ -118,24 +126,26 @@ const Navbar = () => {
             <Link href={"/contact"}>
               <li className="hover:cursor-pointer hover:underline">Contact</li>
             </Link>
-            <ShoppingCartIcon
-              className="hover:cursor-pointer"
-              onClick={() => {
-                setCart(true);
-              }}
-              height={22}
-            />
-            {login ? (
-              <Link href={"/account"}>
-                <UserIcon height={22} />
-              </Link>
-            ) : (
-              <Link href={"/signup"}>
-                <span className="text-xl font-semibold text-blue-900 hover:cursor-pointer hover:underline">
-                  Sign Up
-                </span>
-              </Link>
-            )}
+            <div className="flex items-center space-x-6 lg:space-x-8">
+              <ShoppingCartIcon
+                className="hover:cursor-pointer"
+                onClick={() => {
+                  setCart(true);
+                }}
+                height={22}
+              />
+              {login ? (
+                <Link href={"/account"}>
+                  <UserIcon height={22} />
+                </Link>
+              ) : (
+                <Link href={"/signup"}>
+                  <span className="text-xl font-semibold text-blue-900 hover:cursor-pointer hover:underline">
+                    Sign In
+                  </span>
+                </Link>
+              )}
+            </div>
           </ul>
         </div>
       </nav>
