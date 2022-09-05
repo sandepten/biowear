@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { hamburgerMenuState } from "../atoms/signAtoms";
 
-const signup = () => {
+const Signup = () => {
   const [hamburger, setHamburger] = useRecoilState(hamburgerMenuState);
   useEffect(() => {
     setHamburger(true);
@@ -139,4 +139,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default Signup;

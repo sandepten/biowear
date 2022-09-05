@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const signin = () => {
+const Signin = () => {
   return (
     <div>
       <section className="mt-4 md:mt-10 lg:flex lg:items-center lg:justify-around xl:justify-center 2xl:mt-20">
@@ -99,4 +99,4 @@ const signin = () => {
   );
 };
 
-export default signin;
+export default Signin;
