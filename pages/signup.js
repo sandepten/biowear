@@ -92,7 +92,7 @@ const Signup = () => {
                   htmlFor="checkbox"
                   className="ml-3 text-xs md:text-base lg:text-sm"
                 >
-                  I've read and agree with{" "}
+                  I&apos;ve read and agree with{" "}
                   <span className="text-blue-600 underline">
                     Terms of Service
                   </span>{" "}

@@ -71,7 +71,7 @@ const Signin = () => {
             </div>
           </form>
           <div className="mx-auto mb-8 w-4/5 sm:w-3/4 md:w-2/3 lg:hidden lg:w-auto">
-            <p className="inline">Don't have a account with us?</p>
+            <p className="inline">Don&apos;t have a account with us?</p>
             <Link href="/signup">
               <span className="ml-1.5 font-medium text-blue-600 underline hover:cursor-pointer hover:no-underline">
                 Sign up
@@ -81,7 +81,7 @@ const Signin = () => {
         </div>
         <div className="hidden lg:block lg:w-2/5">
           <div className="w-4/5 text-right">
-            <p className="inline">Don't have a account with us?</p>
+            <p className="inline">Don&apos;t have a account with us?</p>
             <Link href="/signup">
               <span className="ml-1.5 font-medium text-blue-600 underline hover:cursor-pointer hover:no-underline">
                 Sign up
