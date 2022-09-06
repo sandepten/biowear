@@ -5,14 +5,22 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import Link from "next/link";
+import { userAgent } from "next/server";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
-import { hamburgerMenuState } from "../atoms/signAtoms";
+import {
+  hamburgerMenuState,
+  loginState,
+  userNameState,
+} from "../atoms/signAtoms";
+import { logout } from "../db/auth";
 
 const Navbar = () => {
   const [hamburger, setHamburger] = useRecoilState(hamburgerMenuState);
+  const [login, setLogin] = useRecoilState(loginState);
+  const [userName, setUserName] = useRecoilState(userNameState);
   const [cart, setCart] = useState(false);
-  const [login, setLogin] = useState(false);
+  // const [login, setLogin] = useState(false);
   return (
     <div>
       <nav className="bg-white">
@@ -136,7 +144,16 @@ const Navbar = () => {
               />
               {login ? (
                 <Link href={"/account"}>
-                  <UserIcon height={22} />
+                  <div className="flex items-center space-x-3">
+                    <UserIcon
+                      height={22}
+                      className="hover:cursor-pointer"
+                      onClick={() => {
+                        logout();
+                      }}
+                    />
+                    <span className="hover:cursor-pointer">{userName}</span>
+                  </div>
                 </Link>
               ) : (
                 <Link href={"/signup"}>

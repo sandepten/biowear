@@ -1,10 +1,15 @@
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { hamburgerMenuState } from "../atoms/signAtoms";
+import { signUpWithEmail, signUpwithEmail } from "../db/auth";
 
 const Signup = () => {
   const [hamburger, setHamburger] = useRecoilState(hamburgerMenuState);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
   useEffect(() => {
     setHamburger(true);
   }, []);
@@ -24,7 +29,7 @@ const Signup = () => {
             <img src="google-logo.svg" alt="" className="w-9 md:w-11" />
             <p className="py-2">Sign up with Google</p>
           </div>
-          <form action="" method="post">
+          <form onSubmit={() => signUpWithEmail(email, password, fname, lname)}>
             <div className="mx-auto w-4/5 sm:w-3/4 md:w-2/3 lg:w-auto 2xl:w-4/5">
               <label
                 htmlFor="firstName"
@@ -33,6 +38,7 @@ const Signup = () => {
                 First Name
               </label>
               <input
+                onChange={(event) => setFname(event.target.value)}
                 type="text"
                 name="firstName"
                 id=""
@@ -45,6 +51,7 @@ const Signup = () => {
                 Last Name
               </label>
               <input
+                onChange={(event) => setLname(event.target.value)}
                 type="text"
                 name="lastName"
                 id=""
@@ -57,6 +64,7 @@ const Signup = () => {
                 Email
               </label>
               <input
+                onChange={(event) => setEmail(event.target.value)}
                 type="email"
                 name="email"
                 id=""
@@ -69,6 +77,7 @@ const Signup = () => {
                 Password
               </label>
               <input
+                onChange={(event) => setPassword(event.target.value)}
                 type="password"
                 name="password"
                 id=""

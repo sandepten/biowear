@@ -1,7 +1,10 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { signInWithEmail, signInwithEmail } from "../db/auth";
 
 const Signin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div>
       <section className="mt-4 md:mt-10 lg:flex lg:items-center lg:justify-around xl:justify-center 2xl:mt-20">
@@ -18,7 +21,7 @@ const Signin = () => {
             <p className="py-2">Sign in with Google</p>
           </div>
           {/* <p className="mt-6 mb-2 text-center text-xl font-semibold">OR</p> */}
-          <form action="" method="post">
+          <form onSubmit={() => signInWithEmail(email, password)}>
             <div className="mx-auto w-4/5 sm:w-3/4 md:w-2/3 lg:w-auto 2xl:w-4/5">
               <label
                 htmlFor="email"
@@ -27,9 +30,10 @@ const Signin = () => {
                 Email
               </label>
               <input
+                onChange={(event) => setEmail(event.target.value)}
                 type="email"
                 name="email"
-                id=""
+                id="email"
                 className="mb-3 w-full rounded-xl border bg-blue-50 py-1.5 pl-3 md:mb-5"
               />
               <label
@@ -39,9 +43,10 @@ const Signin = () => {
                 Password
               </label>
               <input
+                onChange={(event) => setPassword(event.target.value)}
                 type="password"
                 name="password"
-                id=""
+                id="password"
                 className="mb-5 w-full rounded-xl border bg-blue-50 py-1.5 pl-3 md:mb-9 lg:mb-4"
               />
               <div className="flex justify-between">
@@ -49,7 +54,7 @@ const Signin = () => {
                   <input
                     type="checkbox"
                     name="terms"
-                    id=""
+                    id="checkbox"
                     className="h-5 w-5"
                   />
                   <label htmlFor="checkbox" className="text-sm font-medium">
