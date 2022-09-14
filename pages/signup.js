@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { hamburgerMenuState } from "../atoms/signAtoms";
-import { signUpWithEmail, signUpwithEmail } from "../db/auth";
+import { signUpWithEmail } from "../db/auth";
 
 const Signup = () => {
   const [hamburger, setHamburger] = useRecoilState(hamburgerMenuState);

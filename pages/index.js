@@ -17,11 +17,9 @@ export default function Home() {
   const monitorAuthState = async () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log("user is Logged in");
         setLogin(true);
         setUserName(user.displayName.split(" ")[0]);
       } else {
-        console.log("user is not Logged in");
         setLogin(false);
       }
     });

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { signInWithEmail, signInwithEmail } from "../db/auth";
+import { signInWithEmail } from "../db/auth";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
